@@ -17,10 +17,10 @@ from utils.dataset import BasicDataset
 from torch.utils.data import DataLoader, random_split
 
 torch.cuda.empty_cache()
-train_img = '/home/son/Work/Pytorch-UNet/sci_data/data/train/real_food/train/' #No mask 에러가 발생할 경우 파일명 뒤에 /를 붙여줘라!
-train_mask = '/home/son/Work/Pytorch-UNet/sci_data/data/train/real_food/label/'
-val_img = '/home/son/Work/Pytorch-UNet/sci_data/data/val/img_val/'
-val_mask = '/home/son/Work/Pytorch-UNet/sci_data/data/val/label_val/'
+train_img = '/home/son/Work/torch_CompositeImage/data/train/' #No mask 에러가 발생할 경우 파일명 뒤에 /를 붙여줘라!
+train_mask = '/home/son/Work/torch_CompositeImage/data/label/'
+val_img = '/home/son/Work/torch_CompositeImage/data/img_val/'
+val_mask = '/home/son/Work/torch_CompositeImage/data/label_val/'
 dir_checkpoint = './checkpoints/'
 
 def train_net(net,

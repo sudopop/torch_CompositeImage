@@ -89,18 +89,18 @@ class Composite():
 
 def main():
 
-    True_path = "/home/son/Work/Pytorch-UNet/create_dataset/food_dataset/compoiste"
+    True_path = "/home/son/Work/torch_CompositeImage/data/Only_Normal_400/"  #정상 데이터 경로
 
     dir_name = []
-    dir_name += [each for each in os.listdir("/home/son/Work/Pytorch-UNet/create_dataset/food_dataset/composite_sample/")]
+    dir_name += [each for each in os.listdir("/home/son/Work/torch_CompositeImage/data/abnoraml/")]
     iid = 0
     for iidx in range(len(dir_name)):
-        Anomaly_path = "/home/son/Work/Pytorch-UNet/create_dataset/food_dataset/composite_sample/"
+        Anomaly_path = "/home/son/Work/torch_CompositeImage/data/abnoraml/" #비정상 데이터 경로 (주의사항: 지정 디렉토리의 하위 디렉토리 파일 검색함)
         dataset_name = dir_name[iidx]
         Anomaly_path = Anomaly_path + dataset_name
-        img_save_path = "/home/son/Work/Pytorch-UNet/create_dataset/food_dataset/result"
+        img_save_path = "/home/son/Work/torch_CompositeImage/data/train/"
         # img_save_path = img_save_path + dataset_name + "_train"
-        label_save_path = "/home/son/Work/Pytorch-UNet/create_dataset/food_dataset/result"
+        label_save_path = "/home/son/Work/torch_CompositeImage/data/label/"
         # label_save_path = label_save_path + dataset_name + "_label"
 
         if not os.path.exists(img_save_path):
@@ -112,7 +112,7 @@ def main():
 
         # for idx in range(len(data.Anormalydata)-1):
 
-        for idx in range(5): #수를 정하면 데이터가 많아도 딱 그만큼만 가능함
+        for idx in range(400): #수를 정하면 데이터가 많아도 딱 그만큼만 가능함
             print(iid)
             data.getitem(iid, True) # True: 정상제품이 아래 / False: 정상제품이 위
             iid +=1

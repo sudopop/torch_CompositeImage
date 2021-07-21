@@ -2,26 +2,26 @@ import cv2
 import numpy as np
 
 #img = cv2.imread("/home/son/Work/Pytorch-UNet/sci_data/test_data/0.png")
-img = cv2.imread("./test_data/original/4.png")
+img = cv2.imread("./2.jpg")
 # img = cv2.imread("./3.jpg")
-mask = cv2.imread("./output_4.png")
+mask = cv2.imread("./output_2.png")
 mask = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
 _, normal_gray = cv2.threshold(mask, 250, 255, cv2.THRESH_BINARY_INV)
 # normal_gray = normal_gray.astype('int')
 ano_img = cv2.bitwise_and(img, img, mask=normal_gray)
 
 mask22 = cv2.cvtColor(ano_img, cv2.COLOR_BGR2GRAY)
-_, aa = cv2.threshold(mask22, 254, 255, cv2.THRESH_BINARY)
+_, aa = cv2.threshold(mask22, 240, 255, cv2.THRESH_BINARY)
 ano_img2 = cv2.bitwise_and(img, img, mask=aa)
 cc = ano_img-ano_img2
 
-cv2.imshow('1', normal_gray)
-cv2.imshow('2', ano_img)
-cv2.imshow('3', aa)
-cv2.imshow('4', ano_img2)
-cv2.imshow('minus', cc)
+# cv2.imshow('aa', aa)
+# cv2.imshow('ano_img', ano_img)
+# cv2.imshow('3', aa)
+# cv2.imshow('ano_img2', ano_img2)
+# cv2.imshow('cc', cc)
 # cv2.imshow('normal_gray', ano_img2)
-cv2.waitKey(0)
+# cv2.waitKey(0)
 
 
 gray_result = cv2.cvtColor(cc, cv2.COLOR_BGR2GRAY)
